@@ -4,7 +4,6 @@
 byte comm_header[] = {0, 0, 0};
 char digits[DIGITS_SIZE];
 
-
 // ================ | DATA
 File myFile;
 unsigned int counter = 0;
@@ -12,9 +11,8 @@ unsigned int counter = 0;
 // ================ | SENSOR
 byte value = 0; // NIU
 
-// ================ | TIME
-unsigned long timer = 0;
-unsigned long wait;
+// ================ | TIMERS
+unsigned long tPIR;
 
 void setup() {
 
@@ -45,8 +43,7 @@ void setup() {
   attachInterrupt(INTERRUPT_PIN, motion_detected, HIGH);
 
   // ================ | INIT Aux Variables
-  timer = millis();
-  wait = 100; // initial warm up time for sensors
+  tPIR = millis() + WARM_UP_TIME; // initial warm up time for sensors
 
 }
 
@@ -56,12 +53,12 @@ void loop() {
 
 void motionDetected() {
   /* Handler for digital interrupt from PIR sensor */
-  if (millis() - timer < wait) return;  // avoid double readings
+
+  if (millis() - tPIR < 0) return;  // avoid double readings
 
   counter++;      // increment counter
 
-  timer = millis();
-  wait = 7000;      // wait between sensor readings once up
+  tPIR = millis() + DEBOUNCE_TIME; // wait between sensor readings once up
 
   Serial.println("Movement Detected");
   Serial.print("Count: ");

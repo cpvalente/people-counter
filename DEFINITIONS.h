@@ -10,9 +10,12 @@
 #define INTERRUPT_PIN 2  // interrupt associated to pin
 #define DIGITS_SIZE   6  // this refers to interrupt pin
 
+#define WARM_UP_TIME  30000
+#define DEBOUNCE_TIME 700
+
 #define SLAVE_ADDRESS 1  // address of slave (single slave scenario)
 
 #define FILENAME "datalog.dat"  // where data is saved
-#define CHIPSELECT    4   
+#define CHIPSELECT    4
 
 #endif

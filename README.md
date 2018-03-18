@@ -22,6 +22,7 @@
   =======| Implemented
   - Serial for debug and comm
   - Value from digitalInterrupt
+  - Handling timing rollover https://playground.arduino.cc/Code/TimingRollover
 
   =======| Extend
   - Better handle interval between measurements
