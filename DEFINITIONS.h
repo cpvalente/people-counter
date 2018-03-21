@@ -15,7 +15,7 @@
 
 #define SLAVE_ADDRESS 1  // address of slave (single slave scenario)
 
-#define FILENAME "datalog.dat"  // where data is saved
 #define CHIPSELECT    4
+#define FILENAME "datalog.dat"  // where data is saved
 
 #endif

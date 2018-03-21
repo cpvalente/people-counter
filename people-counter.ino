@@ -22,10 +22,8 @@ void setup() {
   Wire.onRequest(requestEvent);
 
   // ================ | INIT Comms - Serial Debug
-  Serial.begin(9600);
-  while (!Serial){
-    ; // Wait for connection
-  }
+  Serial.begin(38400);
+  while (!Serial){ ; } // Wait for connection
   Serial.println("STARTED");
 
   // ================ | INIT DATA
@@ -56,7 +54,8 @@ void motionDetected() {
 
   if (millis() - tPIR < 0) return;  // avoid double readings
 
-  counter++;      // increment counter
+  noInterrupts();
+  counter++;  // increment counter
 
   tPIR = millis() + DEBOUNCE_TIME; // wait between sensor readings once up
 
@@ -68,10 +67,13 @@ void motionDetected() {
   Serial.println(digits);
 
   //send_data();
+  //logToFile();
+  interrupts();
 }
 
 void receiveEvent(int n){
   /* Handler for when a message is received */
+  noInterrupts();
   while (1 < Wire.available()) {  // loop through all but the last
     char c = Wire.read();         // receive byte as a character
     Serial.print(c);
@@ -79,19 +81,24 @@ void receiveEvent(int n){
 
   int x = Wire.read();           // receive byte as an integer
   Serial.println(x);
+  interrupts();
 }
 
 void requestEvent(){
   /* Handler for request events */
+  noInterrupts();
   Wire.write("Wire event request: nothing yet");
   Serial.println("Wire event request: nothing yet");
+  interrupts();
 }
 
 void sendData(){
   /* Send data over i2c */
   Wire.beginTransmission(SLAVE_ADDRESS);
-  Wire.write(byte(0x00));        // instruction byte
-  Wire.write(digits);            // send Value
+  Wire.write(byte(0x00));       // check byte
+  Wire.write(byte(0x00));       // control byte
+  Wire.write(byte(0x00));       // ACK byte
+  Wire.write(digits);           // send Value
   Wire.endTransmission();
 
   Serial.print("Sent: ");       // send same value over serial
@@ -116,7 +123,7 @@ String readDataFile(){
   return s;
 }
 
-void writeDataFile(String s){
+void logToFile(String s){
   /* Write to SD */
   File dataFile = SD.open(FILENAME, FILE_WRITE);
   String logThis = "";

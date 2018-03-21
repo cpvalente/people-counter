@@ -1,7 +1,5 @@
 # people-counter
 
-/* ================ ================ ================
-
   People Counter - Sender Node
   == Program counts events from PIR sensor
   == periodically + onChange sends value over i2c
@@ -15,7 +13,10 @@
   - SD operations
   -- Read value from SD if it exists
   -- Write new value
-  - Send values periodically
+  - Implement timers
+  -- update display
+  -- stream values
+  - Add file header
 
   - Add hardware listing to README
 
@@ -26,10 +27,12 @@
 
   =======| Extend
   - Better handle interval between measurements
+  - DEBUG mode
   - Add RTC
 
   =======| EXTEND
   - RTC
   - Communications https://github.com/adafruit/Adalight/blob/master/Arduino/LEDstream/LEDstream.pde
 
-  ================ ================ ================ */
+  =======| NOTES
+  - Serial Events not working with adalogger
