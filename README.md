@@ -10,9 +10,6 @@
   =======| TODO
   - Send information to displays
   -- Build i2c packets
-  - SD operations
-  -- Read value from SD if it exists
-  -- Write new value
   - Implement timers
   -- update display
   -- stream values
@@ -21,6 +18,9 @@
   - Add hardware listing to README
 
   =======| Implemented
+  - SD operations
+  -- Write new value to CSV (a bit silly without RTC, implemented anyway)
+  -- Read value from SD if it exists
   - Serial for debug and comm
   - Value from digitalInterrupt
   - Handling timing rollover https://playground.arduino.cc/Code/TimingRollover
@@ -36,3 +36,5 @@
 
   =======| NOTES
   - Serial Events not working with adalogger
+  - Events have noInterrupt()
+  - Arduino SD library returned false readings after certain number of entries (~400)
