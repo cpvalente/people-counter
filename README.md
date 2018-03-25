@@ -2,9 +2,9 @@
 
   People Counter - Sender Node
 
-  Program detects events from PIR sensor and sends and counter over i2c
-  Programmed to be paired with people-seven code  
-  Programmed to run on Adafruit Adalogger 32u4
+  Program detects events from PIR sensor and sends and counter over i2c <br />
+  Programmed to be paired with people-seven code <br />
+  Programmed to run on Adafruit Adalogger 32u4 <br />
 
 
   ### TO-DO
