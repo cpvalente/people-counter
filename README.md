@@ -7,41 +7,42 @@
 
   Programmed to run on Adafruit Adalogger 32u4
 
-  Carlos Valente 25.03.18
-  ------
 
-  #### TO-DO
-  - Send information to displays
-    - Build i2c packets
-  - Implement timers
-    - Update display
-    - Stream values
-  - Add file header
+  ###### TO-DO
 
-  - Add hardware listing to README
+  Send I2C information to displays
+  Implement timers
+  - Update display
+  - Stream values
+  Add file header
+  Make BOM
 
-  #### Implemented
-  - SD operations
-    - Write new value to CSV (a bit silly without RTC, implemented anyway)
-    - Read value from SD if it exists
-  - Serial for debug and comm
-  - Value from digitalInterrupt
-  - Handling timing rollover
+  ###### Implemented
 
-  #### Extend
-  - Better handle interval between measurements
-  - DEBUG mode
-  - Add RTC
+  SD operations
+  - Write new value to CSV (a bit silly without RTC, implemented anyway)
+  - Read value from SD if it exists
+  Serial for debug and comm
+  Value from digitalInterrupt
+  Handling timing rollover
 
-  #### EXTEND
-  - RTC
-  - Communications [AdaLight](https://github.com/adafruit/Adalight/blob/master/Arduino/LEDstream/LEDstream.pde)
+  ###### Extend
 
-  #### NOTES
-  - Serial Events not working with adalogger
-  - Events have noInterrupt()
-  - Arduino SD library returned false readings after certain number of entries (~400)
+  Better handle interval between measurements
+  DEBUG mode
+  Add RTC
 
-  #### License
+  ###### EXTEND
+
+  RTC
+  Communications [AdaLight](https://github.com/adafruit/Adalight/blob/master/Arduino/LEDstream/LEDstream.pde)
+
+  ###### NOTES
+
+  Serial Events not working with adalogger
+  Events have noInterrupt()
+  Arduino SD library returned false readings after certain number of entries (~400)
+
+  ###### License
 
   This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
