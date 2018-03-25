@@ -10,32 +10,28 @@
 
   ### TO-DO
 
-  Send I2C information to displays
-  Implement timers
-  - Update display
-  - Stream values
-  Add file header
-  Make BOM
+  * Send I2C information to displays
+  * Implement timers
+  *     Update display
+  *     Stream values
+  * Add file header
+  * Make BOM
 
   ### Implemented
 
   SD operations
-  - Write new value to CSV (a bit silly without RTC, implemented anyway)
-  - Read value from SD if it exists
+  * Write new value to CSV (a bit silly without RTC, implemented anyway)
+  * Read value from SD if it exists
   Serial for debug and comm
   Value from digitalInterrupt
   Handling timing rollover
 
   ### Extend
 
-  Better handle interval between measurements
-  DEBUG mode
-  Add RTC
-
-  ### EXTEND
-
-  RTC
-  Communications [AdaLight](https://github.com/adafruit/Adalight/blob/master/Arduino/LEDstream/LEDstream.pde)
+  * Better handle interval between measurements
+  * DEBUG mode
+  * Add RTC
+  * Communications, see [AdaLight](https://github.com/adafruit/Adalight/blob/master/Arduino/LEDstream/LEDstream.pde)
 
   ### NOTES
 
