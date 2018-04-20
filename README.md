@@ -10,10 +10,6 @@
   ### TO-DO
 
  ```
-  - Send I2C information to displays
-  - Implement timers
-  -- Update display
-  -- Stream values
   - Add file header
   - Make BOM
  ```
@@ -21,6 +17,7 @@
   ### Implemented
 
  ```
+  - Send I2C information to displays
   - SD operations
   -- Log CSV (a bit silly without RTC, implemented anyway)
   -- Read value from SD if it exists
