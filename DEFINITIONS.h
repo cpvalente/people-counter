@@ -12,10 +12,10 @@
 #define INTERRUPT_PIN 2  // interrupt associated to pin
 #define DIGITS_SIZE   6  // how many digits in number
 
-#define WARM_UP_TIME  45000
-#define DEBOUNCE_TIME 7000
+#define WARM_UP_TIME   45000
+#define DEBOUNCE_TIME  7000
 #define BROADCAST_TIME 3000
-
+#define SAFE_TIME      500
 // ================ | COMMS
 #define SLAVE_ADDRESS 1  // address of slave (single slave scenario)
 

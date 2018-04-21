@@ -65,6 +65,7 @@ void motionDetected() {
 
   if (!bSafeTrigger) {              // Good readings on second high
     bSafeTrigger = true;
+    timerPIR = millis() + SAFE_TIME;
     return;
   }
 

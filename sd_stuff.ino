@@ -27,7 +27,7 @@ long readLast(){
       Anyway, we will check it for peace of mind
   */
   long val = -1;
-  logFile = SD.open(FILENAME, FILE_READ);
+  logFile = SD.open(FILENAME, FILE_WRITE);
   if (logFile.size() <= 0) return val;
   if (!logFile) return val;
 
@@ -65,16 +65,16 @@ long readLast(){
 void logToFile(long number){
   /* Writes number to SD in CSV format */
   char logThis[6];
-  sprintf(logThis, "%06d", number); // string formatting, force 6 digits
-  Serial.print("Adding entry to file ");
-  Serial.println(logThis);
+  sprintf(logThis, "%06d", number); // force 6 digits
   logFile = SD.open(FILENAME, FILE_WRITE);
-  if (!logThis)
+  if (!logThis) {
     Serial.println("Could not read or create file");
     return;
-
+  }
+  Serial.print("Adding entry to file ");
+  Serial.println(logThis);
   logFile.print("RTC");         // Placeholder
   logFile.print(CSV_DELIM);
-  logFile.println(logThis);   // Value
+  logFile.println(logThis);     // Value
   logFile.close();
 }
